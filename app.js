@@ -20,8 +20,8 @@ var browserify = require('browserify-middleware');
 
 // mongo DB
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/todos');
-
+var dbConnectionString = process.env.MONGODB_URI || 'mongodb://localhost';
+mongoose.connect(dbConnectionString + '/todos');
 
 /*====================
       LOAD ROUTES
